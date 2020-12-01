@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<freshmvvm:FreshBaseContentPage
+    x:Class="AGECSUnitConvertor.Pages.Convertors.ForcePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:freshmvvm="clr-namespace:FreshMvvm;assembly=FreshMvvm"
+    xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+    BackgroundColor="#23395d">
+    <ContentPage.Content>
+        <StackLayout>
+            <Image
+                Margin="50"
+                Aspect="AspectFill"
+                Source="AGECSGeneralWhite.png"
+                VerticalOptions="Start" />
+            <Label
+                Margin="5"
+                FontAttributes="Bold"
+                FontSize="16"
+                HorizontalOptions="CenterAndExpand"
+                Text="Quantity Type: Force"
+                TextColor="White"
+                VerticalOptions="Start" />
+
+            <!--  Input Section  -->
+            <StackLayout Orientation="Horizontal">
+
+                <input:AdvancedEntry
+                    Margin="10"
+                    AnnotationColor="Aqua"
+                    IsRequired="True"
+                    Keyboard="Numeric"
+                    MaxLength="50"
+                    MinLength="10"
+                    Placeholder="Input"
+                    Text="{Binding InputValue}"
+                    TextColor="Black"
+                    VerticalOptions="Start"
+                    WidthRequest="200" />
+
+                <input:Dropdown
+                    Margin="10"
+                    ItemsSource="{Binding MyList}"
+                    Placeholder="Unit"
+                    PlaceholderColor="Black"
+                    SelectedItem="{Binding SelectedInputUnit}"
+                    TextColor="Black"
+                    WidthRequest="150"
+                    Color="Black" />
+            </StackLayout>
+
+            <!--  Convertor Icon (2 Arrows)  -->
+            <StackLayout HeightRequest="50" WidthRequest="30">
+
+                <Image
+                    Margin="80,0,20,0"
+                    Aspect="AspectFit"
+                    HeightRequest="50"
+                    HorizontalOptions="StartAndExpand"
+                    Rotation="90"
+                    Source="exchange.png"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="50" />
+            </StackLayout>
+
+            <!--  Output Section  -->
+            <StackLayout Orientation="Horizontal">
+
+                <input:AdvancedEntry
+                    Margin="10"
+                    AnnotationColor="Aqua"
+                    IsRequired="True"
+                    Keyboard="Numeric"
+                    MaxLength="50"
+                    MinLength="10"
+                    Placeholder="Output"
+                    Text="{Binding OutputValue}"
+                    TextColor="Black"
+                    VerticalOptions="Start"
+                    WidthRequest="200" />
+
+                <input:Dropdown
+                    Margin="10"
+                    ItemsSource="{Binding MyList}"
+                    Placeholder="Unit"
+                    PlaceholderColor="Black"
+                    SelectedItem="{Binding SelectedOutputUnit}"
+                    TextColor="Black"
+                    WidthRequest="150"
+                    Color="Black" />
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</freshmvvm:FreshBaseContentPage>

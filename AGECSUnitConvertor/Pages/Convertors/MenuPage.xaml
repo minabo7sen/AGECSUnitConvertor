@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<freshmvvm:FreshBaseContentPage
+    x:Class="AGECSUnitConvertor.Pages.Convertors.MenuPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:freshmvvm="clr-namespace:FreshMvvm;assembly=FreshMvvm">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Frame
+                    Padding="0"
+                    BackgroundColor="#484D6D"
+                    HeightRequest="220"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    WidthRequest="130">
+
+                    <Image
+                        Grid.Row="0"
+                        Aspect="AspectFill"
+                        BackgroundColor="#484D6D"
+                        HorizontalOptions="FillAndExpand"
+                        Opacity="0.6"
+                        Source="menu.jpg"
+                        VerticalOptions="FillAndExpand" />
+                </Frame>
+
+                <Frame
+                    Margin="40,20,20,20"
+                    Padding="0"
+                    CornerRadius="20"
+                    HeightRequest="120"
+                    HorizontalOptions="StartAndExpand"
+                    IsClippedToBounds="True"
+                    VerticalOptions="StartAndExpand"
+                    WidthRequest="120">
+
+                    <Image
+                        Grid.Row="0"
+                        Aspect="AspectFill"
+                        HorizontalOptions="FillAndExpand"
+                        Source="AG01.png"
+                        VerticalOptions="FillAndExpand" />
+
+
+                </Frame>
+                <Label
+                    Grid.Row="0"
+                    Margin="50,160,0,0"
+                    FontAttributes="Bold"
+                    FontSize="24"
+                    HorizontalOptions="FillAndExpand"
+                    Text="AGECS Units Convertor"
+                    TextColor="White"
+                    VerticalOptions="FillAndExpand" />
+
+            </Grid>
+            <StackLayout
+                Margin="-5"
+                HeightRequest="5"
+                Orientation="Horizontal">
+                <BoxView
+                    Margin="-5"
+                    BackgroundColor="#23395d"
+                    HeightRequest="8"
+                    WidthRequest="20000" />
+
+            </StackLayout>
+
+            <StackLayout Padding="10,30,10,10" BackgroundColor="White">
+                <StackLayout Orientation="Horizontal">
+
+                    <Image
+                        HeightRequest="24"
+                        Source="Length.png"
+                        WidthRequest="24" />
+                    <Button
+                        BackgroundColor="White"
+                        Command="{Binding GoLength}"
+                        FontSize="18"
+                        HorizontalOptions="FillAndExpand"
+                        Text="Length Convertor"
+                        TextColor="Black" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+
+                    <Image
+                        HeightRequest="24"
+                        Source="Force.png"
+                        WidthRequest="24" />
+                    <Button
+                        BackgroundColor="White"
+                        Command="{Binding GoForce}"
+                        FontSize="18"
+                        HorizontalOptions="FillAndExpand"
+                        Text="Force Convertor"
+                        TextColor="Black" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+
+                    <Image
+                        HeightRequest="24"
+                        Source="Moment.png"
+                        WidthRequest="24" />
+                    <Button
+                        BackgroundColor="White"
+                        Command="{Binding GoMoment}"
+                        FontSize="18"
+                        HorizontalOptions="FillAndExpand"
+                        Text="Moment Convertor"
+                        TextColor="Black" />
+                </StackLayout>
+
+
+            </StackLayout>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</freshmvvm:FreshBaseContentPage>
