@@ -11,8 +11,11 @@ using Xamarin.Forms;
 namespace AGECSUnitConvertor.PageModels.Convertors
 {
     [AddINotifyPropertyChangedInterface]
-    public class LengthPageModel : GenericPage
+    public class LengthPageModel : FreshBasePageModel, INotifyPropertyChanged
     {
+        public Command SomethingChanged { get; set; }
+        public List<UnitCarrier> MyList { get; set; } = new List<UnitCarrier>();
+
         //Input Value Handling:
         ///===================
         private double _inputValue;
@@ -53,8 +56,8 @@ namespace AGECSUnitConvertor.PageModels.Convertors
 
         //Input Unit Handling:
         ///===================
-        private VMClass _inputUnit;
-        public VMClass SelectedInputUnit
+        private UnitCarrier _inputUnit;
+        public UnitCarrier SelectedInputUnit
         {
             get { return _inputUnit; }
             set
@@ -68,8 +71,8 @@ namespace AGECSUnitConvertor.PageModels.Convertors
 
         //Output Unit Handling:
         ///===================
-        private VMClass _outputUnit;
-        public VMClass SelectedOutputUnit
+        private UnitCarrier _outputUnit;
+        public UnitCarrier SelectedOutputUnit
         {
             get { return _outputUnit; }
             set
@@ -88,13 +91,13 @@ namespace AGECSUnitConvertor.PageModels.Convertors
             PopulateUnits();
 
         }
-        private async Task PopulateUnits()
+        private void PopulateUnits()
         {
             int i = 0;
             //Filling list of units based on quanitity selected:
             foreach (var unit in LengthUnitConverter.UnitsStrings)
             {
-                VMClass sample = new VMClass { Name = unit, Id = i };
+                UnitCarrier sample = new UnitCarrier { Name = unit, Id = i };
                 MyList.Add(sample);
                 i++;
             }
