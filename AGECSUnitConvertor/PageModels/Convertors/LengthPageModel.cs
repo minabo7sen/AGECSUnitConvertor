@@ -1,10 +1,8 @@
 ﻿using AGS.Framework.Engineering.QuantitiesAndUnits.UnitTypes.Distances;
 using FreshMvvm;
 using PropertyChanged;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -14,6 +12,7 @@ namespace AGECSUnitConvertor.PageModels.Convertors
     public class LengthPageModel : FreshBasePageModel, INotifyPropertyChanged
     {
         public Command SomethingChanged { get; set; }
+        public Command Swap { get; set; }
         public List<UnitCarrier> MyList { get; set; } = new List<UnitCarrier>();
 
         //Input Value Handling:
@@ -27,6 +26,7 @@ namespace AGECSUnitConvertor.PageModels.Convertors
                 _inputValue = value;
 
                 SomethingChangedFunction();
+                OnPropertyChanged();
             }
         }
 
@@ -65,6 +65,7 @@ namespace AGECSUnitConvertor.PageModels.Convertors
                 _inputUnit = value;
 
                 SomethingChangedFunction();
+                OnPropertyChanged();
 
             }
         }
@@ -80,7 +81,7 @@ namespace AGECSUnitConvertor.PageModels.Convertors
                 _outputUnit = value;
 
                 SomethingChangedFunction();
-
+                OnPropertyChanged();
             }
         }
 
@@ -88,9 +89,19 @@ namespace AGECSUnitConvertor.PageModels.Convertors
         {
             //Initilizing Commands for conversion:
             SomethingChanged = new Command(async () => await SomethingChangedFunction());
-            PopulateUnits();
+            Swap = new Command(async () => await SwapInputAndOutput());
+            PopulateUnits(); 
 
         }
+
+        private async Task SwapInputAndOutput()
+        {
+            var temp = InputValue;
+            InputValue = OutputValue;
+            OutputValue = temp;
+            SomethingChangedFunction();
+        }
+
         private void PopulateUnits()
         {
             int i = 0;

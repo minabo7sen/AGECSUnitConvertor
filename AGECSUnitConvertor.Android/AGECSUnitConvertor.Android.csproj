@@ -86,9 +86,6 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\AGECSGeneralWhite.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\AGECSUnitConvertor\AGECSUnitConvertor.csproj">
       <Project>{CF87F161-A0DB-4EC9-A027-5202C6290840}</Project>
       <Name>AGECSUnitConvertor</Name>
@@ -114,6 +111,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Moment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\AGECSGeneralWhite.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
