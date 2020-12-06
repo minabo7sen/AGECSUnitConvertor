@@ -12,6 +12,7 @@ namespace AGECSUnitConvertor.PageModels.Convertors
     public class ForcePageModel : FreshBasePageModel, INotifyPropertyChanged
     {
         public Command SomethingChanged { get; set; }
+        public Command Swap { get; set; }
         public List<UnitCarrier> MyList { get; set; } = new List<UnitCarrier>();
 
         //Input Value Handling:
@@ -25,6 +26,7 @@ namespace AGECSUnitConvertor.PageModels.Convertors
                 _inputValue = value;
 
                 SomethingChangedFunction();
+                OnPropertyChanged();
             }
         }
 
@@ -63,6 +65,7 @@ namespace AGECSUnitConvertor.PageModels.Convertors
                 _inputUnit = value;
 
                 SomethingChangedFunction();
+                OnPropertyChanged();
 
             }
         }
@@ -78,16 +81,27 @@ namespace AGECSUnitConvertor.PageModels.Convertors
                 _outputUnit = value;
 
                 SomethingChangedFunction();
-
+                OnPropertyChanged();
             }
         }
 
         public ForcePageModel()
         {
             //Initilizing Commands for conversion:
-            SomethingChanged = new Command(async () => await SomethingChangedFunction()); 
+            SomethingChanged = new Command(async () => await SomethingChangedFunction());
+            Swap = new Command(async () => await SwapInputAndOutput());
             PopulateUnits();
+
         }
+
+        private async Task SwapInputAndOutput()
+        {
+            var temp = InputValue;
+            InputValue = OutputValue;
+            OutputValue = temp;
+            SomethingChangedFunction();
+        }
+
         private void PopulateUnits()
         {
             int i = 0;

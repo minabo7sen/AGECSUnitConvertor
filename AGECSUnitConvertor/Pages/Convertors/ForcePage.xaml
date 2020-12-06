@@ -5,8 +5,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:freshmvvm="clr-namespace:FreshMvvm;assembly=FreshMvvm"
     xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
-    BackgroundColor="#23395d">
-    <ContentPage.Content>
+    xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients">
+    <Grid>
+        <magic:GradientView VerticalOptions="FillAndExpand">
+            <magic:GradientView.GradientSource>
+                <magic:CssGradientSource>
+                    <x:String>
+                        <![CDATA[
+                        repeating-linear-gradient(90deg, hsla(57,0%,42%,0.09) 0px, hsla(57,0%,42%,0.09) 1px,transparent 1px, transparent 60px),repeating-linear-gradient(0deg, hsla(57,0%,42%,0.09) 0px, hsla(57,0%,42%,0.09) 1px,transparent 1px, transparent 60px),repeating-linear-gradient(0deg, hsla(57,0%,42%,0.09) 0px, hsla(57,0%,42%,0.09) 1px,transparent 1px, transparent 10px),repeating-linear-gradient(90deg, hsla(57,0%,42%,0.09) 0px, hsla(57,0%,42%,0.09) 1px,transparent 1px, transparent 10px),linear-gradient(90deg, rgb(18,31,61),rgb(18,31,61))
+                        ]]>
+                    </x:String>
+                </magic:CssGradientSource>
+            </magic:GradientView.GradientSource>
+        </magic:GradientView>
         <StackLayout>
             <Image
                 Margin="50"
@@ -60,7 +71,11 @@
                     Rotation="90"
                     Source="exchange.png"
                     VerticalOptions="CenterAndExpand"
-                    WidthRequest="50" />
+                    WidthRequest="50">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Swap}" />
+                    </Image.GestureRecognizers>
+                </Image>
             </StackLayout>
 
             <!--  Output Section  -->
@@ -91,5 +106,5 @@
             </StackLayout>
 
         </StackLayout>
-    </ContentPage.Content>
+    </Grid>
 </freshmvvm:FreshBaseContentPage>

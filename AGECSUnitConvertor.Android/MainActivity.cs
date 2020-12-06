@@ -25,6 +25,11 @@ namespace AGECSUnitConvertor.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             Plugin.InputKit.Platforms.Droid.Config.Init(this, savedInstanceState); // < ---- Add here
             LoadApplication(new App());
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
+
+            {
+                Window.SetStatusBarColor(Android.Graphics.Color.Rgb(35, 57, 93));//Notch colored Navy
+            }
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {

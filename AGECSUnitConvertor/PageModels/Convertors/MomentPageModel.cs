@@ -14,7 +14,9 @@ namespace AGECSUnitConvertor.PageModels.Convertors
     public class MomentPageModel : FreshBasePageModel, INotifyPropertyChanged
     {
         public Command SomethingChanged { get; set; }
+        public Command Swap { get; set; }
         public List<UnitCarrier> MyList { get; set; } = new List<UnitCarrier>();
+
         //Input Value Handling:
         ///===================
         private double _inputValue;
@@ -26,6 +28,7 @@ namespace AGECSUnitConvertor.PageModels.Convertors
                 _inputValue = value;
 
                 SomethingChangedFunction();
+                OnPropertyChanged();
             }
         }
 
@@ -64,6 +67,7 @@ namespace AGECSUnitConvertor.PageModels.Convertors
                 _inputUnit = value;
 
                 SomethingChangedFunction();
+                OnPropertyChanged();
 
             }
         }
@@ -79,17 +83,27 @@ namespace AGECSUnitConvertor.PageModels.Convertors
                 _outputUnit = value;
 
                 SomethingChangedFunction();
-
+                OnPropertyChanged();
             }
         }
 
         public MomentPageModel()
         {
             //Initilizing Commands for conversion:
-            SomethingChanged = new Command(async () => await SomethingChangedFunction()); 
+            SomethingChanged = new Command(async () => await SomethingChangedFunction());
+            Swap = new Command(async () => await SwapInputAndOutput());
             PopulateUnits();
 
         }
+
+        private async Task SwapInputAndOutput()
+        {
+            var temp = InputValue;
+            InputValue = OutputValue;
+            OutputValue = temp;
+            SomethingChangedFunction();
+        }
+
         private void PopulateUnits()
         {
             int i = 0;
@@ -103,6 +117,7 @@ namespace AGECSUnitConvertor.PageModels.Convertors
         }
         public async Task SomethingChangedFunction()
         {
+            //StringsToEnumConverter();
             OutputValue = MomentUnitConverter.Convert(InputValue, (MomentUnits)SelectedInputUnit.Id, (MomentUnits)SelectedOutputUnit.Id);
         }
     }
