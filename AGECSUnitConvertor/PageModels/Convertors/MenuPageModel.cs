@@ -15,11 +15,13 @@ namespace AGECSUnitConvertor.PageModels.Convertors
         public Command GoLength { get; set; }
         public Command GoForce { get; set; }
         public Command GoMoment { get; set; }
+        public Command GoStress { get; set; }
         public MenuPageModel()
         {
             GoLength = new Command(async () => await NavigateToLength());
             GoForce = new Command(async () => await NavigateToForce());
             GoMoment = new Command(async () => await NavigateToMoment());
+            GoStress = new Command(async () => await NavigateToStress());
         }
         private async Task NavigateToLength()
         {
@@ -32,6 +34,10 @@ namespace AGECSUnitConvertor.PageModels.Convertors
         private async Task NavigateToMoment()
         {
             await CoreMethods.SwitchSelectedMaster<MomentPageModel>();
+        }
+        private async Task NavigateToStress()
+        {
+            await CoreMethods.SwitchSelectedMaster<StressPageModel>();
         }
 
     }

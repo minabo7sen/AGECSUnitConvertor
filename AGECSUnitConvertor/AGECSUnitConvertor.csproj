@@ -34,6 +34,9 @@
     <Compile Update="Pages\Convertors\ForcePage.xaml.cs">
       <DependentUpon>ForcePage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Pages\Convertors\StressPage.xaml.cs">
+      <DependentUpon>StressPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Pages\Convertors\MomentPage.xaml.cs">
       <DependentUpon>MomentPage.xaml</DependentUpon>
     </Compile>

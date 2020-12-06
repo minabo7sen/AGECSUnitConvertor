@@ -116,6 +116,21 @@
                         TextColor="Black" />
                 </StackLayout>
 
+                <StackLayout Orientation="Horizontal">
+
+                    <Image
+                        HeightRequest="24"
+                        Source="Stress.png"
+                        WidthRequest="24" />
+                    <Button
+                        BackgroundColor="White"
+                        Command="{Binding GoStress}"
+                        FontSize="18"
+                        HorizontalOptions="FillAndExpand"
+                        Text="Stress Convertor"
+                        TextColor="Black" />
+                </StackLayout>
+
 
             </StackLayout>
 
