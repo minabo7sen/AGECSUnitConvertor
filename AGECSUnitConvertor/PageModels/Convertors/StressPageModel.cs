@@ -12,6 +12,7 @@ namespace AGECSUnitConvertor.PageModels.Convertors
     public class StressPageModel : FreshBasePageModel, INotifyPropertyChanged
     {
         public Command SomethingChanged { get; set; }
+        public Command OutputHelperCommand { get; set; }
         public Command Swap { get; set; }
         public List<UnitCarrier> MyList { get; set; } = new List<UnitCarrier>();
 
@@ -48,6 +49,7 @@ namespace AGECSUnitConvertor.PageModels.Convertors
                 else
                 {
                     _outputValue = value;
+                    OutputValueChanged();
                     OnPropertyChanged();
                 }
             }
@@ -89,9 +91,26 @@ namespace AGECSUnitConvertor.PageModels.Convertors
         {
             //Initilizing Commands for conversion:
             SomethingChanged = new Command(async () => await SomethingChangedFunction());
+            OutputHelperCommand = new Command(async () => await OutputValueChanged());
             Swap = new Command(async () => await SwapInputAndOutput());
             PopulateUnits();
 
+        }
+
+        public async Task OutputValueChanged()
+        {
+            if (OutputValue == StressUnitConverter.Convert(InputValue, (StressUnits)SelectedInputUnit.Id, (StressUnits)SelectedOutputUnit.Id))
+            {
+
+                //do nothing
+            }
+            else
+            {
+                InputValue = StressUnitConverter.Convert(OutputValue, (StressUnits)SelectedOutputUnit.Id, (StressUnits)SelectedInputUnit.Id);
+
+            }
+
+            //throw new System.NotImplementedException();
         }
 
         private async Task SwapInputAndOutput()
@@ -117,11 +136,7 @@ namespace AGECSUnitConvertor.PageModels.Convertors
         {
             //StringsToEnumConverter();
             OutputValue = StressUnitConverter.Convert(InputValue, (StressUnits)SelectedInputUnit.Id, (StressUnits)SelectedOutputUnit.Id);
-
         }
-
-
-
 
     }
 }

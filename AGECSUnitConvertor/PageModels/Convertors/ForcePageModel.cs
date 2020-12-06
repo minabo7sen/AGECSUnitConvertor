@@ -12,6 +12,7 @@ namespace AGECSUnitConvertor.PageModels.Convertors
     public class ForcePageModel : FreshBasePageModel, INotifyPropertyChanged
     {
         public Command SomethingChanged { get; set; }
+        public Command OutputHelperCommand { get; set; }
         public Command Swap { get; set; }
         public List<UnitCarrier> MyList { get; set; } = new List<UnitCarrier>();
 
@@ -48,6 +49,7 @@ namespace AGECSUnitConvertor.PageModels.Convertors
                 else
                 {
                     _outputValue = value;
+                    OutputValueChanged();
                     OnPropertyChanged();
                 }
             }
@@ -84,14 +86,30 @@ namespace AGECSUnitConvertor.PageModels.Convertors
                 OnPropertyChanged();
             }
         }
-
         public ForcePageModel()
         {
             //Initilizing Commands for conversion:
             SomethingChanged = new Command(async () => await SomethingChangedFunction());
+            OutputHelperCommand = new Command(async () => await OutputValueChanged());
             Swap = new Command(async () => await SwapInputAndOutput());
             PopulateUnits();
 
+        }
+
+        public async Task OutputValueChanged()
+        {
+            if (OutputValue == ForceUnitConverter.Convert(InputValue, (ForceUnits)SelectedInputUnit.Id, (ForceUnits)SelectedOutputUnit.Id))
+            {
+
+                //do nothing
+            }
+            else
+            {
+                InputValue = ForceUnitConverter.Convert(OutputValue, (ForceUnits)SelectedOutputUnit.Id, (ForceUnits)SelectedInputUnit.Id);
+
+            }
+
+            //throw new System.NotImplementedException();
         }
 
         private async Task SwapInputAndOutput()
