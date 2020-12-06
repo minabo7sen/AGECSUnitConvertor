@@ -69,68 +69,29 @@
                     WidthRequest="20000" />
 
             </StackLayout>
-
             <StackLayout Padding="10,30,10,10" BackgroundColor="White">
-                <StackLayout Orientation="Horizontal">
 
-                    <Image
-                        HeightRequest="24"
-                        Source="Length.png"
-                        WidthRequest="24" />
-                    <Button
-                        BackgroundColor="White"
-                        Command="{Binding GoLength}"
-                        FontSize="18"
-                        HorizontalOptions="FillAndExpand"
-                        Text="Length Convertor"
-                        TextColor="Black" />
-                </StackLayout>
-
-                <StackLayout Orientation="Horizontal">
-
-                    <Image
-                        HeightRequest="24"
-                        Source="Force.png"
-                        WidthRequest="24" />
-                    <Button
-                        BackgroundColor="White"
-                        Command="{Binding GoForce}"
-                        FontSize="18"
-                        HorizontalOptions="FillAndExpand"
-                        Text="Force Convertor"
-                        TextColor="Black" />
-                </StackLayout>
-
-                <StackLayout Orientation="Horizontal">
-
-                    <Image
-                        HeightRequest="24"
-                        Source="Moment.png"
-                        WidthRequest="24" />
-                    <Button
-                        BackgroundColor="White"
-                        Command="{Binding GoMoment}"
-                        FontSize="18"
-                        HorizontalOptions="FillAndExpand"
-                        Text="Moment Convertor"
-                        TextColor="Black" />
-                </StackLayout>
-
-                <StackLayout Orientation="Horizontal">
-
-                    <Image
-                        HeightRequest="24"
-                        Source="Stress.png"
-                        WidthRequest="24" />
-                    <Button
-                        BackgroundColor="White"
-                        Command="{Binding GoStress}"
-                        FontSize="18"
-                        HorizontalOptions="FillAndExpand"
-                        Text="Stress Convertor"
-                        TextColor="Black" />
-                </StackLayout>
-
+                <ListView ItemsSource="{Binding MenuItems}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Image
+                                        HeightRequest="24"
+                                        Source="{Binding Image}"
+                                        WidthRequest="24" />
+                                    <Button
+                                        BackgroundColor="White"
+                                        Command="{Binding Navigate}"
+                                        FontSize="18"
+                                        HorizontalOptions="FillAndExpand"
+                                        Text="{Binding Label}"
+                                        TextColor="Black" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
             </StackLayout>
 
