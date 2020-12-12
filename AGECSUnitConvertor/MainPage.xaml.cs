@@ -12,6 +12,7 @@ namespace AGECSUnitConvertor
     {
         public MainPage()
         {
+            DevExpress.XamarinForms.CollectionView.Initializer.Init();
             InitializeComponent();
         }
     }

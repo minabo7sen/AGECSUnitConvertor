@@ -28,6 +28,12 @@
     <Reference Include="AGSQuantitiesAndUnits">
       <HintPath>..\..\AGSQuantitiesAndUnits.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.XamarinForms.CollectionView">
+      <HintPath>..\..\DevExpress.Xamarin\Binaries\DevExpress.XamarinForms.CollectionView.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XamarinForms.Core">
+      <HintPath>..\..\DevExpress.Xamarin\Binaries\DevExpress.XamarinForms.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>

@@ -3,6 +3,7 @@
     x:Class="AGECSUnitConvertor.Pages.Convertors.MenuPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:dxcv="http://schemas.devexpress.com/xamarin/2014/forms/collectionview"
     xmlns:freshmvvm="clr-namespace:FreshMvvm;assembly=FreshMvvm">
     <ContentPage.Content>
         <StackLayout>
@@ -71,27 +72,40 @@
             </StackLayout>
             <StackLayout Padding="10,30,10,10" BackgroundColor="White">
 
-                <ListView ItemsSource="{Binding MenuItems}">
-                    <ListView.ItemTemplate>
+                <dxcv:DXCollectionView AllowDragDropItems="True" ItemsSource="{Binding MenuItems}">
+                    <dxcv:DXCollectionView.ItemTemplate>
                         <DataTemplate>
-                            <ViewCell>
-                                <StackLayout Orientation="Horizontal">
-                                    <Image
-                                        HeightRequest="24"
-                                        Source="{Binding Image}"
-                                        WidthRequest="24" />
-                                    <Button
-                                        BackgroundColor="White"
-                                        Command="{Binding Navigate}"
-                                        FontSize="18"
-                                        HorizontalOptions="FillAndExpand"
-                                        Text="{Binding Label}"
-                                        TextColor="Black" />
-                                </StackLayout>
-                            </ViewCell>
+
+                            <StackLayout Padding="5" Orientation="Horizontal">
+                                <Image
+                                    HeightRequest="24"
+                                    Source="{Binding Image}"
+                                    WidthRequest="24" />
+                                <Button
+                                    BackgroundColor="White"
+                                    Command="{Binding Navigate}"
+                                    FontSize="18"
+                                    HorizontalOptions="FillAndExpand"
+                                    Text="{Binding Label}"
+                                    TextColor="Black" />
+
+                                <Image
+                                    HeightRequest="24"
+                                    HorizontalOptions="EndAndExpand"
+                                    Source="Drag.png"
+                                    WidthRequest="24" />
+                            </StackLayout>
+
                         </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                    </dxcv:DXCollectionView.ItemTemplate>
+
+                    <dxcv:DXCollectionView.Margin>
+                        <OnIdiom
+                            x:TypeArguments="Thickness"
+                            Phone="16,0,0,0"
+                            Tablet="71,0,0,0" />
+                    </dxcv:DXCollectionView.Margin>
+                </dxcv:DXCollectionView>
 
             </StackLayout>
 
