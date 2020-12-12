@@ -18,10 +18,11 @@ namespace AGECSUnitConvertor.PageModels.Convertors
         {
             MenuItems = new List<MenuItem>
             {
-                new MenuItem{ Label="Length Converter",Image="Length.png",Navigate = new Command(async () => await NavigateToLength())},
-                new MenuItem{ Label="Force Converter",Image="Force.png",Navigate = new Command(async () => await NavigateToForce())},
-                new MenuItem{ Label="Moment Converter",Image="Moment.png",Navigate = new Command(async () => await NavigateToMoment())},
-                new MenuItem{ Label="Stress Converter",Image="Stress.png",Navigate = new Command(async () => await NavigateToStress())},
+                new MenuItem{ Label="Length",Image="Length.png",Navigate = new Command(async () => await NavigateToLength())},
+                new MenuItem{ Label="Force",Image="Force.png",Navigate = new Command(async () => await NavigateToForce())},
+                new MenuItem{ Label="Moment",Image="Moment.png",Navigate = new Command(async () => await NavigateToMoment())},
+                new MenuItem{ Label="Stress",Image="Stress.png",Navigate = new Command(async () => await NavigateToStress())},
+                new MenuItem{ Label="Acceleration",Image="Acceleration.png",Navigate = new Command(async () => await NavigateToAcceleration())},
 
             };
         }
@@ -40,6 +41,10 @@ namespace AGECSUnitConvertor.PageModels.Convertors
         private async Task NavigateToStress()
         {
             await CoreMethods.SwitchSelectedMaster<StressPageModel>();
+        }
+        private async Task NavigateToAcceleration()
+        {
+            await CoreMethods.SwitchSelectedMaster<AccelerationPageModel>();
         }
 
     }
