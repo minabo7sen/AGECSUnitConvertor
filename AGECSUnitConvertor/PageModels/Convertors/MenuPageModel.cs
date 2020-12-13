@@ -26,6 +26,7 @@ namespace AGECSUnitConvertor.PageModels.Convertors
                 new MenuItem{ Label="Angle",Image="Acceleration.png",Navigate = new Command(async () => await NavigateToAngle())},
                 new MenuItem{ Label="Area",Image="Acceleration.png",Navigate = new Command(async () => await NavigateToArea())},
                 new MenuItem{ Label="Force Per Length",Image="ForcePerLength.png",Navigate = new Command(async () => await NavigateToForcePerLength())},
+                new MenuItem{ Label="Force Per Volume",Image="ForcePerVolume.png",Navigate = new Command(async () => await NavigateToForcePerVolume())},
 
             };
         }
@@ -60,6 +61,10 @@ namespace AGECSUnitConvertor.PageModels.Convertors
         private async Task NavigateToForcePerLength()
         {
             await CoreMethods.SwitchSelectedMaster<ForcePerLengthPageModel>();
+        }
+        private async Task NavigateToForcePerVolume()
+        {
+            await CoreMethods.SwitchSelectedMaster<ForcePerVolumePageModel>();
         }
 
     }

@@ -26,6 +26,7 @@ namespace AGECSUnitConvertor
             masterDetailNav.AddPage<AnglePageModel>("Angle");
             masterDetailNav.AddPage<AreaPageModel>("Area");
             masterDetailNav.AddPage<ForcePerLengthPageModel>("Force Per Length");
+            masterDetailNav.AddPage<ForcePerVolumePageModel>("Force Per Volume");
             Page master = FreshPageModelResolver.ResolvePageModel<MenuPageModel>();
             Page detail = FreshPageModelResolver.ResolvePageModel<LengthPageModel>();
 
