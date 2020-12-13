@@ -37,6 +37,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Pages\Convertors\AreaPage.xaml.cs">
+      <DependentUpon>AreaPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Pages\Convertors\ForcePage.xaml.cs">
       <DependentUpon>ForcePage.xaml</DependentUpon>
     </Compile>
