@@ -23,6 +23,7 @@ namespace AGECSUnitConvertor
             masterDetailNav.AddPage<MomentPageModel>("Moment");
             masterDetailNav.AddPage<StressPageModel>("Stress");
             masterDetailNav.AddPage<AccelerationPageModel>("Acceleration");
+            masterDetailNav.AddPage<AnglePageModel>("Angle");
             Page master = FreshPageModelResolver.ResolvePageModel<MenuPageModel>();
             Page detail = FreshPageModelResolver.ResolvePageModel<LengthPageModel>();
 
