@@ -49,6 +49,9 @@
     <Compile Update="Pages\Convertors\AnglePage.xaml.cs">
       <DependentUpon>AnglePage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Pages\Convertors\ForcePerLengthPage.xaml.cs">
+      <DependentUpon>ForcePerLengthPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Pages\Convertors\StressPage.xaml.cs">
       <DependentUpon>StressPage.xaml</DependentUpon>
     </Compile>
