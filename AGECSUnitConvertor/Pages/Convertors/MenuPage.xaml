@@ -3,6 +3,7 @@
     x:Class="AGECSUnitConvertor.Pages.Convertors.MenuPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="clr-namespace:Corcav.Behaviors;assembly=Corcav.Behaviors"
     xmlns:dxcv="http://schemas.devexpress.com/xamarin/2014/forms/collectionview"
     xmlns:freshmvvm="clr-namespace:FreshMvvm;assembly=FreshMvvm">
     <ContentPage.Content>
@@ -73,6 +74,13 @@
             <StackLayout Padding="10,30,10,10" BackgroundColor="White">
 
                 <dxcv:DXCollectionView AllowDragDropItems="True" ItemsSource="{Binding MenuItems}">
+
+                    <behaviors:Interaction.Behaviors>
+                        <behaviors:BehaviorCollection>
+                            <behaviors:EventToCommand Command="{Binding SaveOrder}" EventName="CompleteItemDragDrop" />
+                        </behaviors:BehaviorCollection>
+                    </behaviors:Interaction.Behaviors>
+
                     <dxcv:DXCollectionView.ItemTemplate>
                         <DataTemplate>
 
