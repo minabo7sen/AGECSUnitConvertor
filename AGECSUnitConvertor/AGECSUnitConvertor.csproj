@@ -52,8 +52,11 @@
     <Compile Update="Pages\Convertors\ForcePerLengthPage.xaml.cs">
       <DependentUpon>ForcePerLengthPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Pages\Convertors\LengthPage - Copy.xaml.cs">
-      <DependentUpon>%(Filename)</DependentUpon>
+    <Compile Update="Pages\Convertors\InertiaPage.xaml.cs">
+      <DependentUpon>InertiaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Convertors\LengthPage.xaml.cs">
+      <DependentUpon>LengthPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Pages\Convertors\ForcePerVolumePage.xaml.cs">
       <DependentUpon>ForcePerVolumePage.xaml</DependentUpon>

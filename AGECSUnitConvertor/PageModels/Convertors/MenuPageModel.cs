@@ -27,6 +27,7 @@ namespace AGECSUnitConvertor.PageModels.Convertors
                 new MenuItem{ Label="Area",Image="Acceleration.png",Navigate = new Command(async () => await NavigateToArea())},
                 new MenuItem{ Label="Force Per Length",Image="ForcePerLength.png",Navigate = new Command(async () => await NavigateToForcePerLength())},
                 new MenuItem{ Label="Force Per Volume",Image="ForcePerVolume.png",Navigate = new Command(async () => await NavigateToForcePerVolume())},
+                new MenuItem{ Label="Inertia",Image="Inertia.png",Navigate = new Command(async () => await NavigateToInertia())},
 
             };
         }
@@ -65,6 +66,10 @@ namespace AGECSUnitConvertor.PageModels.Convertors
         private async Task NavigateToForcePerVolume()
         {
             await CoreMethods.SwitchSelectedMaster<ForcePerVolumePageModel>();
+        }
+        private async Task NavigateToInertia()
+        {
+            await CoreMethods.SwitchSelectedMaster<InertiaPageModel>();
         }
 
     }
