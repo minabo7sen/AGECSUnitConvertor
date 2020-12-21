@@ -71,11 +71,7 @@
                     Rotation="90"
                     Source="exchange.png"
                     VerticalOptions="CenterAndExpand"
-                    WidthRequest="50">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding Swap}" />
-                    </Image.GestureRecognizers>
-                </Image>
+                    WidthRequest="50" />
             </StackLayout>
 
             <!--  Output Section  -->

@@ -13,7 +13,6 @@ namespace AGECSUnitConvertor.PageModels.Convertors
     {
         public Command SomethingChanged { get; set; }
         public Command OutputHelperCommand { get; set; }
-        public Command Swap { get; set; }
         public List<UnitCarrier> MyList { get; set; } = new List<UnitCarrier>();
 
         //Input Value Handling:
@@ -92,7 +91,6 @@ namespace AGECSUnitConvertor.PageModels.Convertors
             //Initilizing Commands for conversion:
             SomethingChanged = new Command(async () => await SomethingChangedFunction());
             OutputHelperCommand = new Command(async () => await OutputValueChanged());
-            Swap = new Command(async () => await SwapInputAndOutput());
             PopulateUnits();
 
         }
@@ -112,15 +110,6 @@ namespace AGECSUnitConvertor.PageModels.Convertors
 
             //throw new System.NotImplementedException();
         }
-
-        private async Task SwapInputAndOutput()
-        {
-            var temp = InputValue;
-            InputValue = OutputValue;
-            OutputValue = temp;
-            SomethingChangedFunction();
-        }
-
         private void PopulateUnits()
         {
             int i = 0;
